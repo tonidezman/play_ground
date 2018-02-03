@@ -1,0 +1,2 @@
+class Tonko < ApplicationRecord
+end
