@@ -1,3 +1,3 @@
 class Subject < ApplicationRecord
-    has_many :pages, dependent: :destory
+    has_many :pages, dependent: :destroy
 end
