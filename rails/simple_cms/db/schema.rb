@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180201082418) do
+ActiveRecord::Schema.define(version: 20180203030537) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "pages", force: :cascade do |t|
+    t.integer "subject_id"
+    t.string "name", default: "", null: false
+    t.integer "permalink", null: false
+    t.integer "position"
+    t.boolean "visible", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["permalink"], name: "index_pages_on_permalink"
+    t.index ["subject_id"], name: "index_pages_on_subject_id"
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.string "name", limit: 50, default: ""
+    t.integer "position"
+    t.boolean "visible", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "tonkos", force: :cascade do |t|
     t.integer "age"
