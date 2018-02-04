@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180204060105) do
+ActiveRecord::Schema.define(version: 20180204062652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,12 +23,6 @@ ActiveRecord::Schema.define(version: 20180204060105) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "admin_users_pages", id: false, force: :cascade do |t|
-    t.integer "admin_user_id"
-    t.integer "page_id"
-    t.index ["admin_user_id", "page_id"], name: "index_admin_users_pages_on_admin_user_id_and_page_id"
-  end
-
   create_table "pages", force: :cascade do |t|
     t.integer "subject_id"
     t.string "name", default: "", null: false
@@ -39,6 +33,14 @@ ActiveRecord::Schema.define(version: 20180204060105) do
     t.datetime "updated_at", null: false
     t.index ["permalink"], name: "index_pages_on_permalink"
     t.index ["subject_id"], name: "index_pages_on_subject_id"
+  end
+
+  create_table "section_edits", force: :cascade do |t|
+    t.integer "admin_user_id"
+    t.integer "page_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["admin_user_id", "page_id"], name: "index_section_edits_on_admin_user_id_and_page_id"
   end
 
   create_table "sections", force: :cascade do |t|
