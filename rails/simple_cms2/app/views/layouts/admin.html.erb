@@ -18,7 +18,7 @@
         <p class="alert alert-danger"><%= flash[:error] %></p>
     <% end %>
 
-    <% if @subject.errors.any? %>
+    <% if @subject&.errors&.any? %>
         <div class="alert alert-danger">
             <p><%= pluralize(@subject.errors.count, 'error') %></p>
             <ul>
@@ -30,6 +30,7 @@
     <% end %>
 
         <%= yield %>
+
     </div>
   </body>
 </html>
