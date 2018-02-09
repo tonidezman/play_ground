@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :subjects do
-      resources :pages, except: [:show]
+      resources :pages
     end
   end
 

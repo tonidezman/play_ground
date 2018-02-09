@@ -1,0 +1,23 @@
+<h1>Sections for page: <%= @page.name %></h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Section name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @page.sections.each do |sections| %>
+            <tr>
+                <td><%= link_to sections.name, '#', class: 'btn btn-info' %></td>
+                <td>
+                    <%= link_to 'Edit', '#', class: 'btn btn-warning' %>
+                    <%= link_to 'Delete', '#',
+                                        method: 'delete',
+                                        data: { confirm: 'Are you sure?', disable_with: 'loading...'},
+                                        class: 'btn btn-danger' %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>

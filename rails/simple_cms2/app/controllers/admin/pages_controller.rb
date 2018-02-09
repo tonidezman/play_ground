@@ -6,6 +6,10 @@ class Admin::PagesController < ApplicationController
     @pages = @subject.pages
   end
 
+  def show
+    @page = Page.find(params[:id])
+  end
+
   def new
     @subject = Subject.find(params[:subject_id])
     @page = Page.new
