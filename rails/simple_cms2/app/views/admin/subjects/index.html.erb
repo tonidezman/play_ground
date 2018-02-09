@@ -1,2 +1,24 @@
-<h1>Admin::Subjects#index</h1>
-<p>Find me in app/views/admin/subjects/index.html.erb</p>
+<h1>All Subjects</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Subject name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @subjects.each do |subject| %>
+            <tr>
+                <td><%= subject.name %></td>
+                <td>
+                    <%= link_to 'Edit', edit_admin_subject_path(subject), class: 'btn btn-warning' %>
+                    <%= link_to 'Delete', admin_subject_path(subject),
+                                        method: 'delete',
+                                        data: { confirm: 'Are you sure?', disable_with: 'loading...'},
+                                        class: 'btn btn-danger' %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<%= link_to "New Subject", new_admin_subject_path, class: "btn btn-success" %>

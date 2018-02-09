@@ -1,0 +1,7 @@
+<%= form_for [:admin, @subject] do |f| %>
+    <%= f.text_field :name, class: "form-control", autofocus: true %>
+    <br>
+    <br>
+
+    <%= f.submit submit_label, class: "btn btn-success" %>
+<% end %>

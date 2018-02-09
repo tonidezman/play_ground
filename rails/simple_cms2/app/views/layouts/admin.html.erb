@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin Area</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+    <br>
+    <div class="container">
+    <% if flash[:notice] %>
+        <p class="alert alert-success"><%= flash[:notice] %></p>
+    <% end %>
+    <% if flash[:error] %>
+        <p class="alert alert-danger"><%= flash[:error] %></p>
+    <% end %>
+
+        <%= yield %>
+    </div>
+  </body>
+</html>
