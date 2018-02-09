@@ -9,11 +9,12 @@ class Admin::SubjectsController < ApplicationController
   end
 
   def new
-    @subject = Subject.new(name: "default name")
+    @subject = Subject.new
   end
 
   def create
-    if Subject.create(subject_params)
+    @subject = Subject.new(subject_params)
+    if @subject.save
       redirect_to admin_subjects_path, notice: "Subject was successfuly created!"
     else
       render 'new'

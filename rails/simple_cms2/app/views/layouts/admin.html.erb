@@ -18,6 +18,17 @@
         <p class="alert alert-danger"><%= flash[:error] %></p>
     <% end %>
 
+    <% if @subject.errors.any? %>
+        <div class="alert alert-danger">
+            <p><%= pluralize(@subject.errors.count, 'error') %></p>
+            <ul>
+                <% @subject.errors.full_messages.each do |error| %>
+                    <li><%= error %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
         <%= yield %>
     </div>
   </body>
