@@ -1,10 +1,3 @@
 <h1>Add new Page</h1>
 
-<%= form_for [:admin, @subject, @page] do |f| %>
-    <%= f.text_field :name,
-                     class: 'form-control',
-                     autofocus: true,
-                     placeholder: 'page name...' %>
-    <br>
-    <%= f.submit 'Save Page', class: 'btn btn-success' %>
-<% end %>
+<%= render partial: 'form', locals: { submit_label: 'Create New Page' } %>

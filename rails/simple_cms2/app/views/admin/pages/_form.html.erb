@@ -1,0 +1,8 @@
+<%= form_for [:admin, @subject, @page] do |f| %>
+    <%= f.text_field :name,
+                     class: 'form-control',
+                     autofocus: true,
+                     placeholder: 'page name...' %>
+    <br>
+    <%= f.submit submit_label, class: 'btn btn-success' %>
+<% end %>

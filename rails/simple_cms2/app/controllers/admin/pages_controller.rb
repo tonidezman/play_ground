@@ -24,6 +24,26 @@ class Admin::PagesController < ApplicationController
   end
 
   def edit
+    @subject = Subject.find(params[:subject_id])
+    @page = Page.find(params[:id])
+  end
+
+  def update
+    @subject = Subject.find(params[:subject_id])
+    @page = Page.find(params[:id])
+
+    if @page.update_attributes(page_params)
+      redirect_to admin_subject_pages_path(@subject), notice: "Page (#{@page.name}) was successfuly updated!"
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @subject = Subject.find(params[:subject_id])
+    page = Page.find(params[:id])
+    page.destroy
+    redirect_to admin_subject_pages_path(@subject), notice: "Page #{page.name} was successfuly deleted!"
   end
 
   private
