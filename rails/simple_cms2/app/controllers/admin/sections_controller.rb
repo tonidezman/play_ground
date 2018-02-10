@@ -1,4 +1,4 @@
-class Admin::SectionsController < ApplicationController
+class Admin::SectionsController < AdminController
   layout 'admin'
 
   def new
