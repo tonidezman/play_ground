@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :subjects do
       resources :pages do
+        member do
+          post :add_tag
+        end
       end
     end
 

@@ -8,6 +8,11 @@ class Admin::PagesController < ApplicationController
 
   def show
     @page = Page.find(params[:id])
+    @tag  = Tag.new
+    @page_tags = @page.tags
+    # @tags = Tag.all
+    @filtered_tags = Tag.all.select { |tag| !tag.pages.include?(@page) }
+    # @tags_options = @page.tags.map { |tag| [tag.name, tag.id]}
   end
 
   def new
@@ -48,6 +53,14 @@ class Admin::PagesController < ApplicationController
     page = Page.find(params[:id])
     page.destroy
     redirect_to admin_subject_pages_path(@subject), notice: "Page #{page.name} was successfuly deleted!"
+  end
+
+  def add_tag
+    @subject = Subject.find(params[:subject_id])
+    @page = Page.find(params[:id])
+    tag = Tag.find(params[:tag][:id])
+    @page.tags << tag
+    redirect_to admin_subject_page_path(@subject, @page)
   end
 
   private
