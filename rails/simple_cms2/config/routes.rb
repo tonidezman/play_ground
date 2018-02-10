@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     resources :pages do
       resources :sections
     end
+
+    resources :tags
   end
 
 end
