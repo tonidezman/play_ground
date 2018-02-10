@@ -1,2 +1,17 @@
-<h1>Admin::Tags#new</h1>
-<p>Find me in app/views/admin/tags/new.html.erb</p>
+<h1>Add new Tag</h1>
+
+<%= form_for [:admin, @tag] do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control', placeholder: 'tag name...', autofocus: true %>
+    <%= f.hidden_field(:subject_id, value: @subject.id) %>
+    <br>
+    <%= f.submit 'Create new Tag', class: 'btn btn-success' %>
+<% end %>
+
+<br>
+<%= link_to  "Go to Pages", admin_subject_pages_path(@subject), class: 'btn btn-warning' %>
+
+    <br>
+    <br>
+    <br>
+<h1>All Tags</h1>
