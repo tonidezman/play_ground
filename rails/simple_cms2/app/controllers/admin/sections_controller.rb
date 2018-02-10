@@ -19,6 +19,8 @@ class Admin::SectionsController < ApplicationController
   end
 
   def edit
+    @page = Page.find(params[:page_id])
+    @section = Section.find(params[:id])
   end
 
   private

@@ -1,14 +1,3 @@
 <h1>Add new Section</h1>
 
-<%= form_for [:admin, @page, @section] do |f| %>
-    <%= f.text_field :name,
-                     class: 'form-control',
-                     autofocus: true,
-                     placeholder: 'section name...' %>
-    <br>
-    <%= f.text_area :description,
-                    class: 'form-control',
-                    placeholder: 'description...' %>
-    <br>
-    <%= f.submit "Create new Section", class: 'btn btn-success' %>
-<% end %>
+<%= render partial: 'form', locals: { submit_label: 'Create new Section'} %>
