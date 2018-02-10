@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       resources :sections
     end
 
-    resources :tags, except: [:index, :show]
+    resources :tags, except: [:index, :show, :edit, :update]
   end
 
 end

@@ -15,3 +15,9 @@
     <br>
     <br>
 <h1>All Tags</h1>
+
+<ul style="padding: 0">
+    <% @all_tags.each do |tag| %>
+        <%= link_to  tag.name, admin_tag_path(tag, subject_id: @subject.id), method: :delete, class: 'btn btn-sm btn-danger' %>
+    <% end %>
+</ul>

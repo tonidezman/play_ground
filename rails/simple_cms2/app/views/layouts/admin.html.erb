@@ -22,6 +22,7 @@
     <%= display_errors(@subject)&.html_safe %>
     <%= display_errors(@page)&.html_safe %>
     <%= display_errors(@section)&.html_safe %>
+    <%= display_errors(@tag)&.html_safe %>
 
     <% if @page&.errors&.any? %>
         <div class="alert alert-danger">
