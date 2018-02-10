@@ -23,6 +23,24 @@ class Admin::SectionsController < ApplicationController
     @section = Section.find(params[:id])
   end
 
+  def update
+    @page = Page.find(params[:page_id])
+    @section = Section.find(params[:id])
+
+    if @section.update_attributes(section_params)
+      redirect_to admin_subject_page_path(@page.subject, @page), notice: 'Subject successfuly updated!'
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    section = Section.find(params[:id])
+    page = section.page
+    section.destroy
+    redirect_to admin_subject_page_path(page.subject, page)
+  end
+
   private
 
   def section_params

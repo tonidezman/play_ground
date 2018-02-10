@@ -15,7 +15,7 @@
                 <td><%= section.description %></td>
                 <td>
                     <%= link_to 'Edit', edit_admin_page_section_path(@page, section), class: 'btn btn-warning' %>
-                    <%= link_to 'Delete', '#',
+                    <%= link_to 'Delete', admin_page_section_path(@page, section),
                                         method: 'delete',
                                         data: { confirm: 'Are you sure?', disable_with: 'loading...'},
                                         class: 'btn btn-danger' %></td>
