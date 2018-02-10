@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :pages do
         member do
           post :add_tag
+          delete :remove_tag
         end
       end
     end

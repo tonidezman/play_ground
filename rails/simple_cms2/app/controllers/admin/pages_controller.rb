@@ -8,6 +8,7 @@ class Admin::PagesController < ApplicationController
 
   def show
     @page = Page.find(params[:id])
+    @subject = @page.subject
     @tag  = Tag.new
     @page_tags = @page.tags
     # @tags = Tag.all
@@ -60,6 +61,13 @@ class Admin::PagesController < ApplicationController
     @page = Page.find(params[:id])
     tag = Tag.find(params[:tag][:id])
     @page.tags << tag
+    redirect_to admin_subject_page_path(@subject, @page)
+  end
+
+  def remove_tag
+    @page = Page.find(params[:id])
+    @subject = @page.subject
+    @page.tags.destroy(params[:tag_id])
     redirect_to admin_subject_page_path(@subject, @page)
   end
 

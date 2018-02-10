@@ -1,7 +1,7 @@
 <h1>Sections for page: <%= @page.name %></h1>
 
 <% @page_tags.each do |tag| %>
-    <span class="badge badge-info"><%= tag.name %></span>
+    <%= link_to  tag.name, remove_tag_admin_subject_page_path(@subject, tag_id: tag), method: :delete, class: 'badge badge-info' %>
 <% end %>
 <%= form_for [:admin, @tag], url: add_tag_admin_subject_page_path, method: :post do |f| %>
     <%= f.select(:id, options_from_collection_for_select(@filtered_tags, :id, :name), { include_blank: 'select tag...'}, { onchange: "this.form.submit();" })  %>
