@@ -1,11 +1,21 @@
 module ApplicationHelper
 
-    def display_flash(css_class, msg)
-        if css_class == "notice"
-            css = "bg-success"
-        elsif css_class == "error"
-            css = "bg-danger"
-        end
-        "<p class='#{css}'>#{msg}</p>"
+  def display_errors(obj)
+    if obj&.errors&.any?
+      errors = ""
+      obj.errors.full_messages.each do |error|
+        errors << "<li>#{error}</li>"
+      end
+
+      <<~EOL
+        <div class="alert alert-danger">
+          <p>#{pluralize(obj.errors.count, 'error')}</p>
+          <ul>
+            #{errors}
+          </ul>
+        </div>
+      EOL
     end
+  end
+
 end

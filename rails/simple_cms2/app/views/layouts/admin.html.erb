@@ -19,16 +19,9 @@
     <% end %>
 
     <!-- TODO: this two paragraphs should me mor DRY -->
-    <% if @subject&.errors&.any? %>
-        <div class="alert alert-danger">
-            <p><%= pluralize(@subject.errors.count, 'error') %></p>
-            <ul>
-                <% @subject.errors.full_messages.each do |error| %>
-                    <li><%= error %></li>
-                <% end %>
-            </ul>
-        </div>
-    <% end %>
+    <%= display_errors(@subject)&.html_safe %>
+    <%= display_errors(@page)&.html_safe %>
+    <%= display_errors(@section)&.html_safe %>
 
     <% if @page&.errors&.any? %>
         <div class="alert alert-danger">
