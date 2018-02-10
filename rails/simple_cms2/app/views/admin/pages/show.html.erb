@@ -4,13 +4,15 @@
     <thead>
         <tr>
             <th>Section name</th>
+            <th>Description</th>
             <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-        <% @page.sections.each do |sections| %>
+        <% @page.sections.each do |section| %>
             <tr>
-                <td><%= link_to sections.name, '#', class: 'btn btn-info' %></td>
+                <td><%= section.name %></td>
+                <td><%= section.description %></td>
                 <td>
                     <%= link_to 'Edit', '#', class: 'btn btn-warning' %>
                     <%= link_to 'Delete', '#',
