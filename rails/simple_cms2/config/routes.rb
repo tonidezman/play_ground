@@ -4,7 +4,12 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :subjects do
-      resources :pages
+      resources :pages do
+      end
+    end
+
+    resources :pages do
+      resources :sections
     end
   end
 
