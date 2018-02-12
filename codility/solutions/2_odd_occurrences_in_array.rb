@@ -10,7 +10,7 @@ def solution(nums)
       unpaired_nums.add num
     end
   end
-  unpaired_nums.to_a[0]
+  unpaired_nums.to_a.first
 end
 
 # Time-Space complexity
