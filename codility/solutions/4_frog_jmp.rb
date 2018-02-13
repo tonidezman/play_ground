@@ -1,8 +1,8 @@
 def solution(x, y, d)
-  num_of_jumps = y / d
-  jump_state = x * num_of_jumps
+  distance = y - x
+  num_of_jumps = distance / d
 
-  if jump_state < y
+  if distance % d != 0
     return num_of_jumps + 1
   end
 
