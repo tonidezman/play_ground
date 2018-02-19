@@ -1,0 +1,15 @@
+<% if @post.errors.any? %>
+  <div style="color: maroon">
+    <h1>There were some errors</h1>
+    <ul>
+      <% @post.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<h1>New Post</h1>
+
+<%= render 'form' %>
