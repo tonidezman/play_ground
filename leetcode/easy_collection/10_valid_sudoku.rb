@@ -1,7 +1,7 @@
 require 'pry'
 
 def is_valid_sudoku?(board)
-  # return false if any_row_invalid? board
+  return false if any_row_invalid? board
   return false if any_column_invalid? board
   return false if any_sub_square_invalid? board
   true
