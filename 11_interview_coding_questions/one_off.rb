@@ -5,6 +5,8 @@ def one_off(str_a, str_b)
   str_large = largest_str(str_a, str_b)
   str_small = smallest_str(str_a, str_b)
 
+  return false if (str_large.length - str_small.length) >= 2
+
   pointer_small = 0
   pointer_large = 0
   mistake_counter = 0
