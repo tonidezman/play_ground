@@ -5,9 +5,6 @@ def mine_sweeper(bombs, row_size, col_size)
 
   bombs.each do |bomb|
     board[bomb[0]][bomb[1]] = BOMB_MARKER
-  end
-
-  bombs.each do |bomb|
     update_surrounding_cells!(board, bomb)
   end
 
