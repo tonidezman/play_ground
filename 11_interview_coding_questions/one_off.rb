@@ -34,12 +34,13 @@ def one_off_same_length?(str_a, str_b)
   while pointer_a < str_a.length
     if str_a[pointer_a] != str_b[pointer_b]
       mistake_counter += 1
+      return false if mistake_counter > MISTAKE_CAP
     end
     pointer_a += 1
     pointer_b += 1
   end
 
-  mistake_counter <= MISTAKE_CAP
+  return true
 end
 
 def one_off_diff_length?(str_large, str_small)
@@ -53,11 +54,12 @@ def one_off_diff_length?(str_large, str_small)
       pointer_large += 1
     else
       mistake_counter += 1
+      return false if mistake_counter > MISTAKE_CAP
       pointer_large += 1
     end
   end
 
-  mistake_counter <= MISTAKE_CAP
+  true
 end
 
 x = 'abcd'
