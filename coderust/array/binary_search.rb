@@ -3,11 +3,11 @@
 # return index of the number found
 # array is sorted in ascending order
 
-sorted_nums = [1, 10, 20, 47, 59, 63, 75, 88, 99, 107, 120, 133, 155, 162, 176, 188, 199, 200, 210, 222]
+sorted_nums = [1, 2, 10, 20, 47, 59, 63, 75, 88, 99, 107, 120, 133, 155, 162, 176, 188, 199, 200, 210, 222]
 
 def binary_search(sorted_nums, search_num)
-  not_found_flag = -1
-  return not_found_flag if (search_num < sorted_nums.first) || (search_num > sorted_nums.last)
+  num_not_found = -1
+  return num_not_found if (search_num < sorted_nums.first) || (search_num > sorted_nums.last)
 
   left_pointer = 0
   right_pointer = sorted_nums.length - 1
@@ -26,7 +26,7 @@ def binary_search(sorted_nums, search_num)
       right_pointer = guess_index
     end
   end
-  return not_found_flag
+  return num_not_found
 end
 
-puts binary_search(sorted_nums, 1)
+puts binary_search(sorted_nums, 2)
