@@ -1,11 +1,20 @@
-def fib(num)
-  memoize = {}
 
-  return 1 if [1, 2].include? num
-  return num if num < 2
-  return memoize[num] && puts("pulling from cache #{num}") if memoize[num]
-  calculated_fibonacci = fibonacci(num - 1) + fibonacci(num - 2)
-  memoize[num] = calculated_fibonacci
-  puts("calculating and caching => #{num}")
-  calculated_fibonacci
+# this class calculates fibonacci number
+class Fib
+  attr_accessor :memoize
+  def initialize
+    @memoize = {}
+  end
+
+  def calculate(num)
+    return num if num < 2
+    if memoize[num]
+      puts("pulling from cache #{num}")
+      return memoize[num]
+    end
+    calculated_fibonacci = calculate(num - 1) + calculate(num - 2)
+    memoize[num] = calculated_fibonacci
+    puts("calculating and caching => #{num}")
+    calculated_fibonacci
+  end
 end
