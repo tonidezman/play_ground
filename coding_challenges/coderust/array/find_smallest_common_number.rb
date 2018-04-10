@@ -16,13 +16,18 @@ def find_min(a1, a2, a3)
     number = a1[p1]
     return number if all_nums_are_equal
 
-    if a1[p1] < [a2[p2], a3[p3]].max
+    is_a1_value_to_small = a1[p1] < [a2[p2], a3[p3]].max
+    if is_a1_value_to_small
       p1 += 1
     end
-    if a2[p2] < [a1[p1], a3[p3]].max
+
+    is_a2_value_to_small = a2[p2] < [a1[p1], a3[p3]].max
+    if is_a2_value_to_small
       p2 += 1
     end
-    if a3[p3] < [a2[p2], a1[p1]].max
+
+    is_a3_value_to_small = a3[p3] < [a2[p2], a1[p1]].max
+    if is_a3_value_to_small
       p3 += 1
     end
   end
