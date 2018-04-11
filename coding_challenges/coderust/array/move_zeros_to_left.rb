@@ -4,7 +4,7 @@ zeros_count = arr.count(0)
 result = Array.new(zeros_count) { 0 }
 
 arr.each do |num|
-  result << num if !num.zero?
+  result << num unless num.zero?
 end
 
 p arr
